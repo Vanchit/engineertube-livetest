@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>EngineerTube - Focused YouTube Learning</title>
+
+  <meta
+    name="description"
+    content="EngineerTube turns YouTube into a focused learning platform with Focus Mode, study tools, progress tracking, Pomodoro, saved videos, and Pro features."
+  />
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family:
+        Inter,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Roboto,
+        Arial,
+        sans-serif;
+      background: #07111f;
+      color: #dce8f8;
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(1120px, calc(100% - 32px));
+      margin: 0 auto;
+    }
+
+    header {
+      border-bottom: 1px solid #1b3353;
+      background: rgba(7, 17, 31, 0.95);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      min-height: 72px;
+      gap: 20px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .logo {
+      width: 44px;
+      height: 44px;
+      display: grid;
+      place-items: center;
+      border-radius: 12px;
+      background: linear-gradient(135deg, #3878f6, #7a49eb);
+      color: white;
+      font-size: 19px;
+      font-weight: 800;
+    }
+
+    .brand-text strong {
+      display: block;
+      color: #ffffff;
+      font-size: 20px;
+    }
+
+    .brand-text span {
+      color: #89a2c2;
+      font-size: 13px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 22px;
+      color: #a9bdd7;
+      font-size: 14px;
+    }
+
+    .hero {
+      padding: 90px 0 70px;
+      text-align: center;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 7px 13px;
+      border: 1px solid #2a5fa4;
+      border-radius: 999px;
+      background: rgba(53, 120, 246, 0.08);
+      color: #83b3ff;
+      font-size: 13px;
+      margin-bottom: 22px;
+    }
+
+    h1 {
+      margin: 0 auto;
+      max-width: 900px;
+      color: #ffffff;
+      font-size: clamp(42px, 7vw, 72px);
+      line-height: 1.08;
+    }
+
+    .hero p {
+      max-width: 760px;
+      margin: 24px auto 0;
+      color: #a9bdd7;
+      font-size: 19px;
+    }
+
+    .hero-actions {
+      display: flex;
+      justify-content: center;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-top: 34px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 0 22px;
+      border-radius: 10px;
+      font-weight: 700;
+      transition: 0.2s ease;
+    }
+
+    .btn-primary {
+      background: #2d6ef0;
+      color: white;
+    }
+
+    .btn-secondary {
+      border: 1px solid #31537e;
+      color: #dce8f8;
+      background: #0d1b2e;
+    }
+
+    .btn:hover {
+      transform: translateY(-1px);
+    }
+
+    section {
+      padding: 70px 0;
+    }
+
+    .section-title {
+      max-width: 720px;
+      margin-bottom: 36px;
+    }
+
+    .section-title h2 {
+      color: #ffffff;
+      margin: 0 0 12px;
+      font-size: 34px;
+    }
+
+    .section-title p {
+      margin: 0;
+      color: #9db2ce;
+      font-size: 17px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .card {
+      padding: 24px;
+      border: 1px solid #1c385d;
+      border-radius: 16px;
+      background: #0b192c;
+    }
+
+    .card h3 {
+      margin-top: 0;
+      margin-bottom: 10px;
+      color: #ffffff;
+      font-size: 18px;
+    }
+
+    .card p {
+      margin: 0;
+      color: #a7bad4;
+    }
+
+    .pricing-wrap {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 22px;
+      align-items: stretch;
+    }
+
+    .price-card {
+      padding: 32px;
+      border: 1px solid #244a78;
+      border-radius: 18px;
+      background: linear-gradient(145deg, #10223d, #09182c);
+    }
+
+    .price-card.featured {
+      border-color: #3b7df5;
+      box-shadow: 0 0 0 1px rgba(59, 125, 245, 0.15);
+    }
+
+    .price-card h3 {
+      margin: 0 0 8px;
+      color: white;
+      font-size: 25px;
+    }
+
+    .price-card .small {
+      color: #8fa6c4;
+      margin-bottom: 22px;
+    }
+
+    .price {
+      color: #ffffff;
+      font-size: 46px;
+      font-weight: 800;
+      margin-bottom: 4px;
+    }
+
+    .price span {
+      color: #90a6c3;
+      font-size: 16px;
+      font-weight: 500;
+    }
+
+    .price-note {
+      color: #a3b6d0;
+      margin-bottom: 22px;
+    }
+
+    ul {
+      padding-left: 20px;
+      margin-bottom: 0;
+    }
+
+    li {
+      margin: 9px 0;
+      color: #b7c8df;
+    }
+
+    .payment-box {
+      padding: 28px;
+      border: 1px solid #2c4668;
+      border-radius: 16px;
+      background: #0a1728;
+    }
+
+    .payment-box h2 {
+      margin-top: 0;
+      color: #ffffff;
+    }
+
+    .payment-box strong {
+      color: #ffffff;
+    }
+
+    .notice {
+      margin-top: 18px;
+      padding: 17px;
+      border-left: 4px solid #efb93e;
+      border-radius: 8px;
+      background: rgba(239, 185, 62, 0.08);
+      color: #e7d7a2;
+    }
+
+    footer {
+      border-top: 1px solid #19314f;
+      margin-top: 40px;
+    }
+
+    .footer {
+      display: flex;
+      justify-content: space-between;
+      gap: 24px;
+      flex-wrap: wrap;
+      padding: 32px 0;
+      color: #8097b5;
+      font-size: 14px;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+    }
+
+    @media (max-width: 850px) {
+      .grid {
+        grid-template-columns: 1fr;
+      }
+
+      .pricing-wrap {
+        grid-template-columns: 1fr;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .hero {
+        padding-top: 65px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="container nav">
+
+    <div class="brand">
+      <div class="logo">&lt;/&gt;</div>
+
+      <div class="brand-text">
+        <strong>EngineerTube</strong>
+        <span>Make YouTube productive.</span>
+      </div>
+    </div>
+
+    <nav class="nav-links">
+      <a href="#features">Features</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#payments">Payments</a>
+      <a href="#contact">Contact</a>
+    </nav>
+
+  </div>
+</header>
+
+
+<main>
+
+  <section class="hero">
+
+    <div class="container">
+
+      <span class="badge">
+        Chrome Extension • Preparing for Public Release
+      </span>
+
+      <h1>
+        Turn YouTube into a focused learning environment.
+      </h1>
+
+      <p>
+        EngineerTube helps students, developers, and professionals
+        reduce distractions, organize educational content, track
+        learning progress, and use YouTube more intentionally.
+      </p>
+
+      <div class="hero-actions">
+
+        <a class="btn btn-primary" href="#pricing">
+          View EngineerTube Pro
+        </a>
+
+        <a
+          class="btn btn-secondary"
+          href="https://vanchit.github.io/engineertube-privacy/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Privacy Policy
+        </a>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <section id="features">
+
+    <div class="container">
+
+      <div class="section-title">
+
+        <h2>
+          Study-first YouTube tools
+        </h2>
+
+        <p>
+          EngineerTube is designed around one purpose: helping users
+          use YouTube more effectively for focused learning.
+        </p>
+
+      </div>
+
+      <div class="grid">
+
+        <article class="card">
+          <h3>Focus Mode</h3>
+          <p>
+            Filter YouTube recommendations using your active study
+            tags and reduce unrelated content.
+          </p>
+        </article>
+
+        <article class="card">
+          <h3>Study Presets</h3>
+          <p>
+            Create and switch between learning presets for topics such
+            as DSA, SQL, Java, interview preparation, and more.
+          </p>
+        </article>
+
+        <article class="card">
+          <h3>Distraction Controls</h3>
+          <p>
+            Reduce distracting YouTube interface elements and tailor
+            the platform for focused study sessions.
+          </p>
+        </article>
+
+        <article class="card">
+          <h3>Saved Videos & Notes</h3>
+          <p>
+            Save useful learning videos and return to important
+            timestamped notes.
+          </p>
+        </article>
+
+        <article class="card">
+          <h3>Progress Tracking</h3>
+          <p>
+            Track focused watch time, learning activity, study goals,
+            and progress insights.
+          </p>
+        </article>
+
+        <article class="card">
+          <h3>Pomodoro</h3>
+          <p>
+            Use focused study and break sessions without leaving your
+            learning workflow.
+          </p>
+        </article>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <section id="pricing">
+
+    <div class="container">
+
+      <div class="section-title">
+
+        <h2>
+          Simple pricing
+        </h2>
+
+        <p>
+          EngineerTube includes free learning controls with an optional
+          Pro subscription for advanced productivity features.
+        </p>
+
+      </div>
+
+      <div class="pricing-wrap">
+
+        <article class="price-card">
+
+          <h3>EngineerTube Free</h3>
+
+          <div class="small">
+            Core focused-learning experience
+          </div>
+
+          <div class="price">
+            ₹0
+          </div>
+
+          <div class="price-note">
+            No subscription required.
+          </div>
+
+          <ul>
+            <li>Focus recommendation mode</li>
+            <li>Normal recommendation mode</li>
+            <li>Study tags</li>
+            <li>Study presets</li>
+            <li>Core YouTube learning filters</li>
+          </ul>
+
+        </article>
+
+
+        <article class="price-card featured">
+
+          <h3>EngineerTube Pro</h3>
+
+          <div class="small">
+            Advanced productivity tools
+          </div>
+
+          <div class="price">
+            ₹20
+            <span>/ month</span>
+          </div>
+
+          <div class="price-note">
+            Billed every month. Automatically renews until cancelled.
+          </div>
+
+          <ul>
+            <li>Advanced Focus controls</li>
+            <li>Saved videos and timestamped notes</li>
+            <li>Progress tracking and learning insights</li>
+            <li>Pomodoro study timer</li>
+            <li>Additional distraction controls</li>
+            <li>EngineerTube Pro account access</li>
+          </ul>
+
+        </article>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <section id="payments">
+
+    <div class="container">
+
+      <div class="payment-box">
+
+        <h2>
+          Subscription and payment information
+        </h2>
+
+        <p>
+          EngineerTube Pro costs
+          <strong>₹20 per month</strong>.
+          The subscription renews monthly until cancellation is
+          requested.
+        </p>
+
+        <p>
+          Users must sign in with Google before purchasing
+          EngineerTube Pro so the subscription can be associated with
+          their EngineerTube account.
+        </p>
+
+        <p>
+          Payments are securely processed through
+          <strong>Razorpay</strong>. EngineerTube does not directly
+          collect or store card numbers, CVV, UPI PINs, banking
+          passwords, or other sensitive payment credentials.
+        </p>
+
+        <div class="notice">
+
+          Cancellation:
+          users may stop automatic renewal. When cancellation is
+          scheduled at the end of the current billing cycle, Pro
+          access remains available until the end of the already-paid
+          billing period, and the subscription will not renew again.
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <section>
+
+    <div class="container">
+
+      <div class="section-title">
+
+        <h2>
+          Google Sign-In
+        </h2>
+
+        <p>
+          EngineerTube uses Google Sign-In to identify users and
+          associate their EngineerTube Pro subscription with their
+          account.
+        </p>
+
+      </div>
+
+      <div class="card">
+
+        <p>
+          EngineerTube requests only basic Google identity information,
+          including name, email address, account identifier, and
+          profile information when available.
+        </p>
+
+        <p>
+          EngineerTube does not request access to Gmail, Google Drive,
+          Google Calendar, or Google Contacts.
+        </p>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <section id="contact">
+
+    <div class="container">
+
+      <div class="section-title">
+
+        <h2>
+          Contact & policies
+        </h2>
+
+        <p>
+          Questions about EngineerTube, subscriptions, privacy, or
+          account access can be sent to the contact email below.
+        </p>
+
+      </div>
+
+      <div class="card">
+
+        <p>
+          <strong>Product:</strong>
+          EngineerTube
+        </p>
+
+        <p>
+          <strong>Contact email:</strong>
+          <a href="mailto:contactengineertube@gmail.com">
+            contactengineertube@gmail.com
+          </a>
+        </p>
+
+        <p>
+          <strong>Privacy Policy:</strong>
+          <a
+            href="https://vanchit.github.io/engineertube-privacy/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            View EngineerTube Privacy Policy
+          </a>
+        </p>
+
+        <p>
+          EngineerTube is an independent Chrome extension and is not
+          affiliated with or endorsed by YouTube or Google.
+        </p>
+
+      </div>
+
+    </div>
+
+  </section>
+
+</main>
+
+
+<footer>
+
+  <div class="container footer">
+
+    <div>
+      © 2026 EngineerTube. All rights reserved.
+    </div>
+
+    <div class="footer-links">
+
+      <a
+        href="https://vanchit.github.io/engineertube-privacy/"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Privacy Policy
+      </a>
+
+      <a href="mailto:contactengineertube@gmail.com">
+        Contact
+      </a>
+
+    </div>
+
+  </div>
+
+</footer>
+
+</body>
+</html>
