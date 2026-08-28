@@ -4,6 +4,11 @@
   <meta charset="UTF-8" />
 
   <meta
+    name="google-site-verification"
+    content="32oNmL7dz1dPXZGEq57hWqgA24xz06aVlKGh1o0w99g"
+  />
+
+  <meta
     name="viewport"
     content="width=device-width, initial-scale=1.0"
   />
@@ -26,7 +31,6 @@
 
     body {
       margin: 0;
-
       font-family:
         Inter,
         -apple-system,
@@ -58,30 +62,20 @@
       margin: 0 auto;
     }
 
-    /* =========================
-       HEADER
-    ========================= */
-
     header {
       position: sticky;
       top: 0;
       z-index: 100;
-
       border-bottom: 1px solid #18304e;
-
-      background:
-        rgba(5, 13, 26, 0.92);
-
+      background: rgba(5, 13, 26, 0.92);
       backdrop-filter: blur(16px);
     }
 
     .nav {
       min-height: 72px;
-
       display: flex;
       align-items: center;
       justify-content: space-between;
-
       gap: 20px;
     }
 
@@ -94,35 +88,20 @@
     .logo {
       width: 46px;
       height: 46px;
-
       display: flex;
       align-items: flex-end;
       justify-content: center;
-
       gap: 3px;
-
       padding: 9px 7px;
-
       border-radius: 13px;
-
-      background:
-        linear-gradient(
-          145deg,
-          #07162e,
-          #0a1f3d
-        );
-
+      background: linear-gradient(145deg, #07162e, #0a1f3d);
       border: 1px solid #164675;
-
-      box-shadow:
-        0 0 22px rgba(0, 157, 255, 0.18);
+      box-shadow: 0 0 22px rgba(0, 157, 255, 0.18);
     }
 
     .logo-line {
       width: 7px;
-
       border-radius: 10px;
-
       background:
         linear-gradient(
           180deg,
@@ -130,7 +109,6 @@
           #008cff,
           #2453ff
         );
-
       box-shadow:
         0 0 8px rgba(0, 203, 255, 0.55);
     }
@@ -149,9 +127,7 @@
 
     .brand-text strong {
       display: block;
-
       color: #ffffff;
-
       font-size: 20px;
       letter-spacing: -0.02em;
     }
@@ -164,11 +140,8 @@
     .nav-links {
       display: flex;
       align-items: center;
-
       gap: 22px;
-
       color: #a9bdd7;
-
       font-size: 14px;
     }
 
@@ -180,52 +153,28 @@
       color: #3edcff;
     }
 
-    /* =========================
-       HERO
-    ========================= */
-
     .hero {
       padding: 100px 0 80px;
-
       text-align: center;
     }
 
     .badge {
       display: inline-block;
-
       margin-bottom: 24px;
-
       padding: 7px 14px;
-
       border: 1px solid #225b96;
       border-radius: 999px;
-
-      background:
-        rgba(0, 153, 255, 0.07);
-
+      background: rgba(0, 153, 255, 0.07);
       color: #72caff;
-
       font-size: 13px;
     }
 
     h1 {
       max-width: 920px;
-
-      margin:
-        0
-        auto;
-
+      margin: 0 auto;
       color: #ffffff;
-
-      font-size:
-        clamp(
-          42px,
-          7vw,
-          72px
-        );
-
+      font-size: clamp(42px, 7vw, 72px);
       line-height: 1.06;
-
       letter-spacing: -0.045em;
     }
 
@@ -240,47 +189,32 @@
 
       -webkit-background-clip: text;
       background-clip: text;
-
       color: transparent;
     }
 
     .hero p {
       max-width: 780px;
-
-      margin:
-        26px
-        auto
-        0;
-
+      margin: 26px auto 0;
       color: #a9bdd7;
-
       font-size: 19px;
     }
 
     .hero-actions {
       display: flex;
       justify-content: center;
-
       gap: 14px;
-
       flex-wrap: wrap;
-
       margin-top: 36px;
     }
 
     .btn {
       min-height: 49px;
-
       display: inline-flex;
       align-items: center;
       justify-content: center;
-
       padding: 0 23px;
-
       border-radius: 10px;
-
       font-weight: 700;
-
       transition:
         transform 0.18s ease,
         background 0.18s ease,
@@ -293,30 +227,21 @@
 
     .btn-primary {
       color: white;
-
       background:
         linear-gradient(
           135deg,
           #047ff4,
           #245bf3
         );
-
       box-shadow:
         0 10px 30px rgba(0, 119, 255, 0.2);
     }
 
     .btn-secondary {
       color: #dce8f8;
-
       border: 1px solid #31537e;
-
-      background:
-        #0a1728;
+      background: #0a1728;
     }
-
-    /* =========================
-       GENERAL SECTIONS
-    ========================= */
 
     section {
       padding: 72px 0;
@@ -324,66 +249,44 @@
 
     .section-title {
       max-width: 760px;
-
       margin-bottom: 38px;
     }
 
     .section-title.center {
       margin-left: auto;
       margin-right: auto;
-
       text-align: center;
     }
 
     .section-title h2 {
-      margin:
-        0
-        0
-        12px;
-
+      margin: 0 0 12px;
       color: #ffffff;
-
-      font-size:
-        clamp(
-          30px,
-          4vw,
-          38px
-        );
-
+      font-size: clamp(30px, 4vw, 38px);
       letter-spacing: -0.025em;
     }
 
     .section-title p {
       margin: 0;
-
       color: #9db2ce;
-
       font-size: 17px;
     }
 
     .grid {
       display: grid;
-
-      grid-template-columns:
-        repeat(3, 1fr);
-
+      grid-template-columns: repeat(3, 1fr);
       gap: 18px;
     }
 
     .card {
       padding: 25px;
-
       border: 1px solid #1c385d;
-
       border-radius: 16px;
-
       background:
         linear-gradient(
           145deg,
           #0b192c,
           #081526
         );
-
       transition:
         transform 0.18s ease,
         border-color 0.18s ease;
@@ -391,61 +294,38 @@
 
     .card:hover {
       transform: translateY(-3px);
-
       border-color: #256ab2;
     }
 
     .feature-icon {
       width: 42px;
       height: 42px;
-
       display: grid;
       place-items: center;
-
       margin-bottom: 16px;
-
       border-radius: 11px;
-
-      background:
-        rgba(0, 145, 255, 0.1);
-
+      background: rgba(0, 145, 255, 0.1);
       border: 1px solid #235b91;
-
       color: #45d7ff;
-
       font-size: 18px;
-
       font-weight: 800;
     }
 
     .card h3 {
-      margin:
-        0
-        0
-        9px;
-
+      margin: 0 0 9px;
       color: #ffffff;
-
       font-size: 18px;
     }
 
     .card p {
       margin: 0;
-
       color: #a7bad4;
     }
 
-    /* =========================
-       IDEA SECTION
-    ========================= */
-
     .idea-box {
       padding: 44px;
-
       border: 1px solid #1e4b77;
-
       border-radius: 20px;
-
       background:
         radial-gradient(
           circle at 10% 10%,
@@ -456,54 +336,29 @@
     }
 
     .idea-box h2 {
-      margin:
-        0
-        0
-        16px;
-
+      margin: 0 0 16px;
       color: white;
-
-      font-size:
-        clamp(
-          30px,
-          4vw,
-          40px
-        );
+      font-size: clamp(30px, 4vw, 40px);
     }
 
     .idea-box p {
       max-width: 850px;
-
       margin: 0;
-
       color: #a9bdd7;
-
       font-size: 18px;
     }
 
-    /* =========================
-       PRICING
-    ========================= */
-
     .pricing-wrap {
       display: grid;
-
-      grid-template-columns:
-        1fr
-        1fr;
-
+      grid-template-columns: 1fr 1fr;
       gap: 22px;
-
       align-items: stretch;
     }
 
     .price-card {
       padding: 32px;
-
       border: 1px solid #244a78;
-
       border-radius: 18px;
-
       background:
         linear-gradient(
           145deg,
@@ -514,90 +369,59 @@
 
     .price-card.featured {
       border-color: #197ce0;
-
       box-shadow:
-        0
-        0
-        0
-        1px
-        rgba(24, 124, 224, 0.13),
-        0
-        20px
-        60px
-        rgba(0, 105, 255, 0.11);
+        0 0 0 1px rgba(24, 124, 224, 0.13),
+        0 20px 60px rgba(0, 105, 255, 0.11);
     }
 
     .price-card h3 {
-      margin:
-        0
-        0
-        8px;
-
+      margin: 0 0 8px;
       color: white;
-
       font-size: 25px;
     }
 
     .small {
       margin-bottom: 22px;
-
       color: #8fa6c4;
     }
 
     .price {
       margin-bottom: 4px;
-
       color: white;
-
       font-size: 46px;
-
       font-weight: 800;
     }
 
     .price span {
       color: #90a6c3;
-
       font-size: 16px;
-
       font-weight: 500;
     }
 
     .price-note {
       margin-bottom: 22px;
-
       color: #a3b6d0;
     }
 
     ul {
       padding-left: 20px;
-
       margin-bottom: 0;
     }
 
     li {
       margin: 9px 0;
-
       color: #b7c8df;
     }
 
-    /* =========================
-       PAYMENT / ACCOUNT
-    ========================= */
-
     .info-box {
       padding: 30px;
-
       border: 1px solid #29486d;
-
       border-radius: 17px;
-
-      background:
-        #091729;
+      background: #091729;
     }
 
     .info-box h2 {
       margin-top: 0;
-
       color: white;
     }
 
@@ -607,73 +431,44 @@
 
     .notice {
       margin-top: 18px;
-
       padding: 17px;
-
       border-left: 4px solid #efb93e;
       border-radius: 8px;
-
-      background:
-        rgba(239, 185, 62, 0.07);
-
+      background: rgba(239, 185, 62, 0.07);
       color: #e7d7a2;
     }
 
-    /* =========================
-       CONTACT
-    ========================= */
-
     .contact-grid {
       display: grid;
-
-      grid-template-columns:
-        repeat(2, 1fr);
-
+      grid-template-columns: repeat(2, 1fr);
       gap: 18px;
     }
 
     .contact-link {
       color: #60cfff;
-
       word-break: break-word;
     }
 
-    /* =========================
-       FOOTER
-    ========================= */
-
     footer {
       margin-top: 40px;
-
       border-top: 1px solid #19314f;
     }
 
     .footer {
       display: flex;
       justify-content: space-between;
-
       gap: 24px;
-
       flex-wrap: wrap;
-
       padding: 32px 0;
-
       color: #8097b5;
-
       font-size: 14px;
     }
 
     .footer-links {
       display: flex;
-
       flex-wrap: wrap;
-
       gap: 18px;
     }
-
-    /* =========================
-       MOBILE
-    ========================= */
 
     @media (max-width: 850px) {
       .grid {
@@ -705,10 +500,6 @@
 
 <body>
 
-  <!-- =========================
-       HEADER
-  ========================== -->
-
   <header>
     <div class="container nav">
 
@@ -727,7 +518,6 @@
 
       </div>
 
-
       <nav class="nav-links">
         <a href="#features">Features</a>
         <a href="#pricing">Pricing</a>
@@ -739,14 +529,7 @@
   </header>
 
 
-  <!-- =========================
-       MAIN
-  ========================== -->
-
   <main>
-
-
-    <!-- HERO -->
 
     <section class="hero">
 
@@ -770,7 +553,6 @@
           activity, and customize your experience around your own interests.
         </p>
 
-
         <div class="hero-actions">
 
           <a
@@ -779,7 +561,6 @@
           >
             Explore MakeMyTube
           </a>
-
 
           <a
             class="btn btn-secondary"
@@ -796,8 +577,6 @@
 
     </section>
 
-
-    <!-- PRODUCT IDEA -->
 
     <section>
 
@@ -828,8 +607,6 @@
     </section>
 
 
-    <!-- FEATURES -->
-
     <section id="features">
 
       <div class="container">
@@ -850,7 +627,6 @@
 
 
         <div class="grid">
-
 
           <article class="card">
 
@@ -1013,15 +789,12 @@
 
           </article>
 
-
         </div>
 
       </div>
 
     </section>
 
-
-    <!-- HOW IT WORKS -->
 
     <section>
 
@@ -1043,7 +816,6 @@
 
 
         <div class="grid">
-
 
           <article class="card">
 
@@ -1085,15 +857,12 @@
 
           </article>
 
-
         </div>
 
       </div>
 
     </section>
 
-
-    <!-- PRICING -->
 
     <section id="pricing">
 
@@ -1114,9 +883,6 @@
 
 
         <div class="pricing-wrap">
-
-
-          <!-- FREE -->
 
           <article class="price-card">
 
@@ -1148,8 +914,6 @@
 
           </article>
 
-
-          <!-- PRO -->
 
           <article class="price-card featured">
 
@@ -1184,15 +948,12 @@
 
           </article>
 
-
         </div>
 
       </div>
 
     </section>
 
-
-    <!-- PAYMENT -->
 
     <section id="payments">
 
@@ -1204,7 +965,6 @@
             Subscription & payment information
           </h2>
 
-
           <p>
             MakeMyTube Pro costs
             <strong>
@@ -1214,13 +974,11 @@
             requested.
           </p>
 
-
           <p>
             Users must sign in with Google before purchasing
             MakeMyTube Pro so the subscription can be associated with
             their account.
           </p>
-
 
           <p>
             Payments are securely processed through
@@ -1252,8 +1010,6 @@
 
     </section>
 
-
-    <!-- GOOGLE SIGN IN -->
 
     <section>
 
@@ -1295,8 +1051,6 @@
     </section>
 
 
-    <!-- PRIVACY -->
-
     <section id="privacy">
 
       <div class="container">
@@ -1317,7 +1071,6 @@
 
 
         <div class="grid">
-
 
           <article class="card">
 
@@ -1362,7 +1115,6 @@
 
           </article>
 
-
         </div>
 
 
@@ -1387,8 +1139,6 @@
     </section>
 
 
-    <!-- CONTACT -->
-
     <section id="contact">
 
       <div class="container">
@@ -1408,7 +1158,6 @@
 
 
         <div class="contact-grid">
-
 
           <div class="card">
 
@@ -1479,7 +1228,6 @@
 
           </div>
 
-
         </div>
 
       </div>
@@ -1489,10 +1237,6 @@
 
   </main>
 
-
-  <!-- =========================
-       FOOTER
-  ========================== -->
 
   <footer>
 
