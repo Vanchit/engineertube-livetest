@@ -2,13 +2,17 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>EngineerTube - Focused YouTube Learning</title>
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  />
+
+  <title>MakeMyTube - Make YouTube Yours</title>
 
   <meta
     name="description"
-    content="EngineerTube turns YouTube into a focused learning platform with Focus Mode, study tools, progress tracking, Pomodoro, saved videos, and Pro features."
+    content="MakeMyTube gives you more control over your YouTube experience. Shape your feed, reduce unwanted topics, prioritize trusted creators, save videos, track progress, and use YouTube the way you want."
   />
 
   <style>
@@ -16,8 +20,13 @@
       box-sizing: border-box;
     }
 
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       margin: 0;
+
       font-family:
         Inter,
         -apple-system,
@@ -26,7 +35,15 @@
         Roboto,
         Arial,
         sans-serif;
-      background: #07111f;
+
+      background:
+        radial-gradient(
+          circle at 50% -10%,
+          rgba(0, 174, 255, 0.11),
+          transparent 32%
+        ),
+        #050d1a;
+
       color: #dce8f8;
       line-height: 1.6;
     }
@@ -41,19 +58,30 @@
       margin: 0 auto;
     }
 
+    /* =========================
+       HEADER
+    ========================= */
+
     header {
-      border-bottom: 1px solid #1b3353;
-      background: rgba(7, 17, 31, 0.95);
       position: sticky;
       top: 0;
-      z-index: 10;
+      z-index: 100;
+
+      border-bottom: 1px solid #18304e;
+
+      background:
+        rgba(5, 13, 26, 0.92);
+
+      backdrop-filter: blur(16px);
     }
 
     .nav {
+      min-height: 72px;
+
       display: flex;
       align-items: center;
       justify-content: space-between;
-      min-height: 72px;
+
       gap: 20px;
     }
 
@@ -64,249 +92,588 @@
     }
 
     .logo {
-      width: 44px;
-      height: 44px;
-      display: grid;
-      place-items: center;
-      border-radius: 12px;
-      background: linear-gradient(135deg, #3878f6, #7a49eb);
-      color: white;
-      font-size: 19px;
-      font-weight: 800;
+      width: 46px;
+      height: 46px;
+
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+
+      gap: 3px;
+
+      padding: 9px 7px;
+
+      border-radius: 13px;
+
+      background:
+        linear-gradient(
+          145deg,
+          #07162e,
+          #0a1f3d
+        );
+
+      border: 1px solid #164675;
+
+      box-shadow:
+        0 0 22px rgba(0, 157, 255, 0.18);
+    }
+
+    .logo-line {
+      width: 7px;
+
+      border-radius: 10px;
+
+      background:
+        linear-gradient(
+          180deg,
+          #2af3ee,
+          #008cff,
+          #2453ff
+        );
+
+      box-shadow:
+        0 0 8px rgba(0, 203, 255, 0.55);
+    }
+
+    .logo-line:nth-child(1) {
+      height: 22px;
+    }
+
+    .logo-line:nth-child(2) {
+      height: 31px;
+    }
+
+    .logo-line:nth-child(3) {
+      height: 24px;
     }
 
     .brand-text strong {
       display: block;
+
       color: #ffffff;
+
       font-size: 20px;
+      letter-spacing: -0.02em;
     }
 
     .brand-text span {
-      color: #89a2c2;
+      color: #8ba4c6;
       font-size: 13px;
     }
 
     .nav-links {
       display: flex;
+      align-items: center;
+
       gap: 22px;
+
       color: #a9bdd7;
+
       font-size: 14px;
     }
 
+    .nav-links a {
+      transition: color 0.18s ease;
+    }
+
+    .nav-links a:hover {
+      color: #3edcff;
+    }
+
+    /* =========================
+       HERO
+    ========================= */
+
     .hero {
-      padding: 90px 0 70px;
+      padding: 100px 0 80px;
+
       text-align: center;
     }
 
     .badge {
       display: inline-block;
-      padding: 7px 13px;
-      border: 1px solid #2a5fa4;
+
+      margin-bottom: 24px;
+
+      padding: 7px 14px;
+
+      border: 1px solid #225b96;
       border-radius: 999px;
-      background: rgba(53, 120, 246, 0.08);
-      color: #83b3ff;
+
+      background:
+        rgba(0, 153, 255, 0.07);
+
+      color: #72caff;
+
       font-size: 13px;
-      margin-bottom: 22px;
     }
 
     h1 {
-      margin: 0 auto;
-      max-width: 900px;
+      max-width: 920px;
+
+      margin:
+        0
+        auto;
+
       color: #ffffff;
-      font-size: clamp(42px, 7vw, 72px);
-      line-height: 1.08;
+
+      font-size:
+        clamp(
+          42px,
+          7vw,
+          72px
+        );
+
+      line-height: 1.06;
+
+      letter-spacing: -0.045em;
+    }
+
+    .gradient-text {
+      background:
+        linear-gradient(
+          90deg,
+          #38f2ed,
+          #0ba5ff,
+          #4468ff
+        );
+
+      -webkit-background-clip: text;
+      background-clip: text;
+
+      color: transparent;
     }
 
     .hero p {
-      max-width: 760px;
-      margin: 24px auto 0;
+      max-width: 780px;
+
+      margin:
+        26px
+        auto
+        0;
+
       color: #a9bdd7;
+
       font-size: 19px;
     }
 
     .hero-actions {
       display: flex;
       justify-content: center;
+
       gap: 14px;
+
       flex-wrap: wrap;
-      margin-top: 34px;
+
+      margin-top: 36px;
     }
 
     .btn {
+      min-height: 49px;
+
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      min-height: 48px;
-      padding: 0 22px;
+
+      padding: 0 23px;
+
       border-radius: 10px;
+
       font-weight: 700;
-      transition: 0.2s ease;
-    }
 
-    .btn-primary {
-      background: #2d6ef0;
-      color: white;
-    }
-
-    .btn-secondary {
-      border: 1px solid #31537e;
-      color: #dce8f8;
-      background: #0d1b2e;
+      transition:
+        transform 0.18s ease,
+        background 0.18s ease,
+        border 0.18s ease;
     }
 
     .btn:hover {
-      transform: translateY(-1px);
+      transform: translateY(-2px);
     }
 
+    .btn-primary {
+      color: white;
+
+      background:
+        linear-gradient(
+          135deg,
+          #047ff4,
+          #245bf3
+        );
+
+      box-shadow:
+        0 10px 30px rgba(0, 119, 255, 0.2);
+    }
+
+    .btn-secondary {
+      color: #dce8f8;
+
+      border: 1px solid #31537e;
+
+      background:
+        #0a1728;
+    }
+
+    /* =========================
+       GENERAL SECTIONS
+    ========================= */
+
     section {
-      padding: 70px 0;
+      padding: 72px 0;
     }
 
     .section-title {
-      max-width: 720px;
-      margin-bottom: 36px;
+      max-width: 760px;
+
+      margin-bottom: 38px;
+    }
+
+    .section-title.center {
+      margin-left: auto;
+      margin-right: auto;
+
+      text-align: center;
     }
 
     .section-title h2 {
+      margin:
+        0
+        0
+        12px;
+
       color: #ffffff;
-      margin: 0 0 12px;
-      font-size: 34px;
+
+      font-size:
+        clamp(
+          30px,
+          4vw,
+          38px
+        );
+
+      letter-spacing: -0.025em;
     }
 
     .section-title p {
       margin: 0;
+
       color: #9db2ce;
+
       font-size: 17px;
     }
 
     .grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+
+      grid-template-columns:
+        repeat(3, 1fr);
+
       gap: 18px;
     }
 
     .card {
-      padding: 24px;
+      padding: 25px;
+
       border: 1px solid #1c385d;
+
       border-radius: 16px;
-      background: #0b192c;
+
+      background:
+        linear-gradient(
+          145deg,
+          #0b192c,
+          #081526
+        );
+
+      transition:
+        transform 0.18s ease,
+        border-color 0.18s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-3px);
+
+      border-color: #256ab2;
+    }
+
+    .feature-icon {
+      width: 42px;
+      height: 42px;
+
+      display: grid;
+      place-items: center;
+
+      margin-bottom: 16px;
+
+      border-radius: 11px;
+
+      background:
+        rgba(0, 145, 255, 0.1);
+
+      border: 1px solid #235b91;
+
+      color: #45d7ff;
+
+      font-size: 18px;
+
+      font-weight: 800;
     }
 
     .card h3 {
-      margin-top: 0;
-      margin-bottom: 10px;
+      margin:
+        0
+        0
+        9px;
+
       color: #ffffff;
+
       font-size: 18px;
     }
 
     .card p {
       margin: 0;
+
       color: #a7bad4;
     }
 
+    /* =========================
+       IDEA SECTION
+    ========================= */
+
+    .idea-box {
+      padding: 44px;
+
+      border: 1px solid #1e4b77;
+
+      border-radius: 20px;
+
+      background:
+        radial-gradient(
+          circle at 10% 10%,
+          rgba(0, 180, 255, 0.12),
+          transparent 30%
+        ),
+        #09182b;
+    }
+
+    .idea-box h2 {
+      margin:
+        0
+        0
+        16px;
+
+      color: white;
+
+      font-size:
+        clamp(
+          30px,
+          4vw,
+          40px
+        );
+    }
+
+    .idea-box p {
+      max-width: 850px;
+
+      margin: 0;
+
+      color: #a9bdd7;
+
+      font-size: 18px;
+    }
+
+    /* =========================
+       PRICING
+    ========================= */
+
     .pricing-wrap {
       display: grid;
-      grid-template-columns: 1fr 1fr;
+
+      grid-template-columns:
+        1fr
+        1fr;
+
       gap: 22px;
+
       align-items: stretch;
     }
 
     .price-card {
       padding: 32px;
+
       border: 1px solid #244a78;
+
       border-radius: 18px;
-      background: linear-gradient(145deg, #10223d, #09182c);
+
+      background:
+        linear-gradient(
+          145deg,
+          #10223d,
+          #09182c
+        );
     }
 
     .price-card.featured {
-      border-color: #3b7df5;
-      box-shadow: 0 0 0 1px rgba(59, 125, 245, 0.15);
+      border-color: #197ce0;
+
+      box-shadow:
+        0
+        0
+        0
+        1px
+        rgba(24, 124, 224, 0.13),
+        0
+        20px
+        60px
+        rgba(0, 105, 255, 0.11);
     }
 
     .price-card h3 {
-      margin: 0 0 8px;
+      margin:
+        0
+        0
+        8px;
+
       color: white;
+
       font-size: 25px;
     }
 
-    .price-card .small {
-      color: #8fa6c4;
+    .small {
       margin-bottom: 22px;
+
+      color: #8fa6c4;
     }
 
     .price {
-      color: #ffffff;
-      font-size: 46px;
-      font-weight: 800;
       margin-bottom: 4px;
+
+      color: white;
+
+      font-size: 46px;
+
+      font-weight: 800;
     }
 
     .price span {
       color: #90a6c3;
+
       font-size: 16px;
+
       font-weight: 500;
     }
 
     .price-note {
-      color: #a3b6d0;
       margin-bottom: 22px;
+
+      color: #a3b6d0;
     }
 
     ul {
       padding-left: 20px;
+
       margin-bottom: 0;
     }
 
     li {
       margin: 9px 0;
+
       color: #b7c8df;
     }
 
-    .payment-box {
-      padding: 28px;
-      border: 1px solid #2c4668;
-      border-radius: 16px;
-      background: #0a1728;
+    /* =========================
+       PAYMENT / ACCOUNT
+    ========================= */
+
+    .info-box {
+      padding: 30px;
+
+      border: 1px solid #29486d;
+
+      border-radius: 17px;
+
+      background:
+        #091729;
     }
 
-    .payment-box h2 {
+    .info-box h2 {
       margin-top: 0;
-      color: #ffffff;
+
+      color: white;
     }
 
-    .payment-box strong {
-      color: #ffffff;
+    .info-box strong {
+      color: white;
     }
 
     .notice {
       margin-top: 18px;
+
       padding: 17px;
+
       border-left: 4px solid #efb93e;
       border-radius: 8px;
-      background: rgba(239, 185, 62, 0.08);
+
+      background:
+        rgba(239, 185, 62, 0.07);
+
       color: #e7d7a2;
     }
 
+    /* =========================
+       CONTACT
+    ========================= */
+
+    .contact-grid {
+      display: grid;
+
+      grid-template-columns:
+        repeat(2, 1fr);
+
+      gap: 18px;
+    }
+
+    .contact-link {
+      color: #60cfff;
+
+      word-break: break-word;
+    }
+
+    /* =========================
+       FOOTER
+    ========================= */
+
     footer {
-      border-top: 1px solid #19314f;
       margin-top: 40px;
+
+      border-top: 1px solid #19314f;
     }
 
     .footer {
       display: flex;
       justify-content: space-between;
+
       gap: 24px;
+
       flex-wrap: wrap;
+
       padding: 32px 0;
+
       color: #8097b5;
+
       font-size: 14px;
     }
 
     .footer-links {
       display: flex;
+
       flex-wrap: wrap;
+
       gap: 18px;
     }
+
+    /* =========================
+       MOBILE
+    ========================= */
 
     @media (max-width: 850px) {
       .grid {
@@ -317,12 +684,20 @@
         grid-template-columns: 1fr;
       }
 
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
       .nav-links {
         display: none;
       }
 
       .hero {
-        padding-top: 65px;
+        padding-top: 70px;
+      }
+
+      .idea-box {
+        padding: 28px;
       }
     }
   </style>
@@ -330,57 +705,807 @@
 
 <body>
 
-<header>
-  <div class="container nav">
+  <!-- =========================
+       HEADER
+  ========================== -->
 
-    <div class="brand">
-      <div class="logo">&lt;/&gt;</div>
+  <header>
+    <div class="container nav">
 
-      <div class="brand-text">
-        <strong>EngineerTube</strong>
-        <span>Make YouTube productive.</span>
+      <div class="brand">
+
+        <div class="logo">
+          <span class="logo-line"></span>
+          <span class="logo-line"></span>
+          <span class="logo-line"></span>
+        </div>
+
+        <div class="brand-text">
+          <strong>MakeMyTube</strong>
+          <span>Make YouTube yours.</span>
+        </div>
+
       </div>
+
+
+      <nav class="nav-links">
+        <a href="#features">Features</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#privacy">Privacy</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
     </div>
-
-    <nav class="nav-links">
-      <a href="#features">Features</a>
-      <a href="#pricing">Pricing</a>
-      <a href="#payments">Payments</a>
-      <a href="#contact">Contact</a>
-    </nav>
-
-  </div>
-</header>
+  </header>
 
 
-<main>
+  <!-- =========================
+       MAIN
+  ========================== -->
 
-  <section class="hero">
+  <main>
 
-    <div class="container">
 
-      <span class="badge">
-        Chrome Extension • Preparing for Public Release
-      </span>
+    <!-- HERO -->
 
-      <h1>
-        Turn YouTube into a focused learning environment.
-      </h1>
+    <section class="hero">
 
-      <p>
-        EngineerTube helps students, developers, and professionals
-        reduce distractions, organize educational content, track
-        learning progress, and use YouTube more intentionally.
-      </p>
+      <div class="container">
 
-      <div class="hero-actions">
+        <span class="badge">
+          Chrome Extension • Shape Your Own Experience
+        </span>
 
-        <a class="btn btn-primary" href="#pricing">
-          View EngineerTube Pro
-        </a>
+        <h1>
+          Your YouTube should work
+          <span class="gradient-text">
+            the way you want it to.
+          </span>
+        </h1>
+
+        <p>
+          MakeMyTube gives you more control over what you see on YouTube.
+          Choose the topics you want more of, reduce unwanted content,
+          prioritize creators you trust, save useful videos, track your
+          activity, and customize your experience around your own interests.
+        </p>
+
+
+        <div class="hero-actions">
+
+          <a
+            class="btn btn-primary"
+            href="#features"
+          >
+            Explore MakeMyTube
+          </a>
+
+
+          <a
+            class="btn btn-secondary"
+            href="https://vanchit.github.io/engineertube-privacy/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Privacy Policy
+          </a>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- PRODUCT IDEA -->
+
+    <section>
+
+      <div class="container">
+
+        <div class="idea-box">
+
+          <h2>
+            Make your YouTube,
+            <span class="gradient-text">
+              yours.
+            </span>
+          </h2>
+
+          <p>
+            Everyone uses YouTube differently. Some people use it for
+            technology, fitness, finance, gaming, creativity, education,
+            entertainment, hobbies, news, or a mixture of everything.
+            MakeMyTube is built around a simple idea: instead of letting
+            one recommendation system decide everything for you, you should
+            have more control over what your own feed becomes.
+          </p>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- FEATURES -->
+
+    <section id="features">
+
+      <div class="container">
+
+        <div class="section-title center">
+
+          <h2>
+            Your YouTube. Your rules.
+          </h2>
+
+          <p>
+            MakeMyTube adds controls that help you shape recommendations,
+            organize useful content, reduce distractions, and personalize
+            the way you use YouTube.
+          </p>
+
+        </div>
+
+
+        <div class="grid">
+
+
+          <article class="card">
+
+            <div class="feature-icon">
+              ◎
+            </div>
+
+            <h3>
+              Focus Mode
+            </h3>
+
+            <p>
+              Shape your recommendation feed around the interests and
+              topics you choose.
+            </p>
+
+          </article>
+
+
+          <article class="card">
+
+            <div class="feature-icon">
+              #
+            </div>
+
+            <h3>
+              Custom Tags
+            </h3>
+
+            <p>
+              Tell MakeMyTube which topics you want to see more often and
+              which topics you would rather reduce.
+            </p>
+
+          </article>
+
+
+          <article class="card">
+
+            <div class="feature-icon">
+              ✓
+            </div>
+
+            <h3>
+              Trusted Channels
+            </h3>
+
+            <p>
+              Prioritize creators you already trust when their videos match
+              the interests you have selected.
+            </p>
+
+          </article>
+
+
+          <article class="card">
+
+            <div class="feature-icon">
+              ▷
+            </div>
+
+            <h3>
+              Saved Videos
+            </h3>
+
+            <p>
+              Save videos you want to return to and keep useful content
+              organized inside your personal library.
+            </p>
+
+          </article>
+
+
+          <article class="card">
+
+            <div class="feature-icon">
+              ✎
+            </div>
+
+            <h3>
+              Timestamped Notes
+            </h3>
+
+            <p>
+              Keep notes connected to important moments in videos so you
+              can return to them later.
+            </p>
+
+          </article>
+
+
+          <article class="card">
+
+            <div class="feature-icon">
+              ↗
+            </div>
+
+            <h3>
+              Progress Insights
+            </h3>
+
+            <p>
+              Understand how you use YouTube over time with watch-time and
+              activity insights.
+            </p>
+
+          </article>
+
+
+          <article class="card">
+
+            <div class="feature-icon">
+              ◉
+            </div>
+
+            <h3>
+              Distraction Controls
+            </h3>
+
+            <p>
+              Optionally reduce comments, related videos, Shorts,
+              livestreams, interface elements, and other distractions.
+            </p>
+
+          </article>
+
+
+          <article class="card">
+
+            <div class="feature-icon">
+              ◷
+            </div>
+
+            <h3>
+              Pomodoro
+            </h3>
+
+            <p>
+              Use focused work and break sessions without leaving your
+              YouTube workflow.
+            </p>
+
+          </article>
+
+
+          <article class="card">
+
+            <div class="feature-icon">
+              ⇄
+            </div>
+
+            <h3>
+              Local Backup
+            </h3>
+
+            <p>
+              Export and import supported MakeMyTube data so you can keep
+              a local backup of useful records.
+            </p>
+
+          </article>
+
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- HOW IT WORKS -->
+
+    <section>
+
+      <div class="container">
+
+        <div class="section-title">
+
+          <h2>
+            You stay in control.
+          </h2>
+
+          <p>
+            MakeMyTube does not decide what should be productive or useful
+            for you. You choose the interests, topics, channels, and
+            controls that fit the way you want to use YouTube.
+          </p>
+
+        </div>
+
+
+        <div class="grid">
+
+
+          <article class="card">
+
+            <h3>
+              1. Choose your interests
+            </h3>
+
+            <p>
+              Add the subjects, categories, or interests that matter to you.
+            </p>
+
+          </article>
+
+
+          <article class="card">
+
+            <h3>
+              2. Reduce unwanted topics
+            </h3>
+
+            <p>
+              Add blocked tags for content you personally do not want to
+              appear as strongly in your experience.
+            </p>
+
+          </article>
+
+
+          <article class="card">
+
+            <h3>
+              3. Let your feed adapt
+            </h3>
+
+            <p>
+              MakeMyTube works with the content YouTube already recommends
+              and helps filter and organize it around your preferences.
+            </p>
+
+          </article>
+
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- PRICING -->
+
+    <section id="pricing">
+
+      <div class="container">
+
+        <div class="section-title">
+
+          <h2>
+            Simple pricing
+          </h2>
+
+          <p>
+            MakeMyTube includes core controls for free, with an optional
+            Pro subscription for additional features.
+          </p>
+
+        </div>
+
+
+        <div class="pricing-wrap">
+
+
+          <!-- FREE -->
+
+          <article class="price-card">
+
+            <h3>
+              MakeMyTube Free
+            </h3>
+
+            <div class="small">
+              Personalize your YouTube experience
+            </div>
+
+            <div class="price">
+              ₹0
+            </div>
+
+            <div class="price-note">
+              No subscription required.
+            </div>
+
+
+            <ul>
+              <li>Focus recommendation mode</li>
+              <li>Normal recommendation mode</li>
+              <li>Custom interest / study tags</li>
+              <li>Blocked tags</li>
+              <li>Study / interest presets</li>
+              <li>Core recommendation controls</li>
+            </ul>
+
+          </article>
+
+
+          <!-- PRO -->
+
+          <article class="price-card featured">
+
+            <h3>
+              MakeMyTube Pro
+            </h3>
+
+            <div class="small">
+              Additional personalization and productivity tools
+            </div>
+
+            <div class="price">
+              ₹20
+              <span>
+                / month
+              </span>
+            </div>
+
+            <div class="price-note">
+              Billed monthly. Automatically renews until cancelled.
+            </div>
+
+
+            <ul>
+              <li>Advanced Focus controls</li>
+              <li>Saved videos and timestamped notes</li>
+              <li>Progress tracking and usage insights</li>
+              <li>Pomodoro timer</li>
+              <li>Additional distraction controls</li>
+              <li>MakeMyTube Pro account access</li>
+            </ul>
+
+          </article>
+
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- PAYMENT -->
+
+    <section id="payments">
+
+      <div class="container">
+
+        <div class="info-box">
+
+          <h2>
+            Subscription & payment information
+          </h2>
+
+
+          <p>
+            MakeMyTube Pro costs
+            <strong>
+              ₹20 per month
+            </strong>.
+            The subscription renews monthly until cancellation is
+            requested.
+          </p>
+
+
+          <p>
+            Users must sign in with Google before purchasing
+            MakeMyTube Pro so the subscription can be associated with
+            their account.
+          </p>
+
+
+          <p>
+            Payments are securely processed through
+            <strong>
+              Razorpay
+            </strong>.
+            MakeMyTube does not directly collect or store card numbers,
+            CVV values, UPI PINs, banking passwords, or other sensitive
+            payment credentials.
+          </p>
+
+
+          <div class="notice">
+
+            <strong>
+              Cancellation:
+            </strong>
+
+            Users can stop automatic renewal. When cancellation is
+            scheduled for the end of the current billing cycle, Pro
+            access remains available until the end of the already-paid
+            period, and the subscription will not renew again.
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- GOOGLE SIGN IN -->
+
+    <section>
+
+      <div class="container">
+
+        <div class="section-title">
+
+          <h2>
+            Google Sign-In
+          </h2>
+
+          <p>
+            MakeMyTube uses Google Sign-In to identify users and associate
+            MakeMyTube Pro access with the correct account.
+          </p>
+
+        </div>
+
+
+        <div class="card">
+
+          <p>
+            MakeMyTube requests basic Google identity information needed
+            for account access, such as name, email address, account
+            identifier, and profile information when available.
+          </p>
+
+          <br>
+
+          <p>
+            MakeMyTube does not request access to Gmail, Google Drive,
+            Google Calendar, or Google Contacts.
+          </p>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- PRIVACY -->
+
+    <section id="privacy">
+
+      <div class="container">
+
+        <div class="section-title">
+
+          <h2>
+            Privacy
+          </h2>
+
+          <p>
+            MakeMyTube is designed to provide personalization and
+            productivity features while keeping its requested permissions
+            limited to what the extension needs to operate.
+          </p>
+
+        </div>
+
+
+        <div class="grid">
+
+
+          <article class="card">
+
+            <h3>
+              Your settings
+            </h3>
+
+            <p>
+              MakeMyTube stores extension preferences such as selected
+              tags, controls, presets, and supported local activity data
+              needed for its features.
+            </p>
+
+          </article>
+
+
+          <article class="card">
+
+            <h3>
+              Payments
+            </h3>
+
+            <p>
+              Sensitive payment credentials are handled by Razorpay and
+              are not directly collected by the MakeMyTube extension.
+            </p>
+
+          </article>
+
+
+          <article class="card">
+
+            <h3>
+              Google account
+            </h3>
+
+            <p>
+              Google Sign-In is used for identity and account-related
+              features. MakeMyTube does not request access to Gmail,
+              Drive, Calendar, or Contacts.
+            </p>
+
+          </article>
+
+
+        </div>
+
+
+        <div
+          class="hero-actions"
+          style="justify-content:flex-start;"
+        >
+
+          <a
+            class="btn btn-secondary"
+            href="https://vanchit.github.io/engineertube-privacy/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Read Full Privacy Policy
+          </a>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- CONTACT -->
+
+    <section id="contact">
+
+      <div class="container">
+
+        <div class="section-title">
+
+          <h2>
+            Contact & policies
+          </h2>
+
+          <p>
+            Questions about MakeMyTube, subscriptions, privacy, payments,
+            or account access can be sent using the contact details below.
+          </p>
+
+        </div>
+
+
+        <div class="contact-grid">
+
+
+          <div class="card">
+
+            <h3>
+              Product
+            </h3>
+
+            <p>
+              MakeMyTube
+            </p>
+
+          </div>
+
+
+          <div class="card">
+
+            <h3>
+              Contact email
+            </h3>
+
+            <p>
+
+              <a
+                class="contact-link"
+                href="mailto:contactengineertube@gmail.com"
+              >
+                contactengineertube@gmail.com
+              </a>
+
+            </p>
+
+          </div>
+
+
+          <div class="card">
+
+            <h3>
+              Privacy Policy
+            </h3>
+
+            <p>
+
+              <a
+                class="contact-link"
+                href="https://vanchit.github.io/engineertube-privacy/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                View Privacy Policy
+              </a>
+
+            </p>
+
+          </div>
+
+
+          <div class="card">
+
+            <h3>
+              Independent extension
+            </h3>
+
+            <p>
+              MakeMyTube is an independent Chrome extension and is not
+              affiliated with, endorsed by, or sponsored by YouTube or
+              Google.
+            </p>
+
+          </div>
+
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+  </main>
+
+
+  <!-- =========================
+       FOOTER
+  ========================== -->
+
+  <footer>
+
+    <div class="container footer">
+
+      <div>
+        © 2026 MakeMyTube. All rights reserved.
+      </div>
+
+
+      <div class="footer-links">
 
         <a
-          class="btn btn-secondary"
           href="https://vanchit.github.io/engineertube-privacy/"
           target="_blank"
           rel="noopener noreferrer"
@@ -388,336 +1513,17 @@
           Privacy Policy
         </a>
 
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <section id="features">
-
-    <div class="container">
-
-      <div class="section-title">
-
-        <h2>
-          Study-first YouTube tools
-        </h2>
-
-        <p>
-          EngineerTube is designed around one purpose: helping users
-          use YouTube more effectively for focused learning.
-        </p>
-
-      </div>
-
-      <div class="grid">
-
-        <article class="card">
-          <h3>Focus Mode</h3>
-          <p>
-            Filter YouTube recommendations using your active study
-            tags and reduce unrelated content.
-          </p>
-        </article>
-
-        <article class="card">
-          <h3>Study Presets</h3>
-          <p>
-            Create and switch between learning presets for topics such
-            as DSA, SQL, Java, interview preparation, and more.
-          </p>
-        </article>
-
-        <article class="card">
-          <h3>Distraction Controls</h3>
-          <p>
-            Reduce distracting YouTube interface elements and tailor
-            the platform for focused study sessions.
-          </p>
-        </article>
-
-        <article class="card">
-          <h3>Saved Videos & Notes</h3>
-          <p>
-            Save useful learning videos and return to important
-            timestamped notes.
-          </p>
-        </article>
-
-        <article class="card">
-          <h3>Progress Tracking</h3>
-          <p>
-            Track focused watch time, learning activity, study goals,
-            and progress insights.
-          </p>
-        </article>
-
-        <article class="card">
-          <h3>Pomodoro</h3>
-          <p>
-            Use focused study and break sessions without leaving your
-            learning workflow.
-          </p>
-        </article>
+        <a
+          href="mailto:contactengineertube@gmail.com"
+        >
+          Contact
+        </a>
 
       </div>
 
     </div>
 
-  </section>
-
-
-  <section id="pricing">
-
-    <div class="container">
-
-      <div class="section-title">
-
-        <h2>
-          Simple pricing
-        </h2>
-
-        <p>
-          EngineerTube includes free learning controls with an optional
-          Pro subscription for advanced productivity features.
-        </p>
-
-      </div>
-
-      <div class="pricing-wrap">
-
-        <article class="price-card">
-
-          <h3>EngineerTube Free</h3>
-
-          <div class="small">
-            Core focused-learning experience
-          </div>
-
-          <div class="price">
-            ₹0
-          </div>
-
-          <div class="price-note">
-            No subscription required.
-          </div>
-
-          <ul>
-            <li>Focus recommendation mode</li>
-            <li>Normal recommendation mode</li>
-            <li>Study tags</li>
-            <li>Study presets</li>
-            <li>Core YouTube learning filters</li>
-          </ul>
-
-        </article>
-
-
-        <article class="price-card featured">
-
-          <h3>EngineerTube Pro</h3>
-
-          <div class="small">
-            Advanced productivity tools
-          </div>
-
-          <div class="price">
-            ₹20
-            <span>/ month</span>
-          </div>
-
-          <div class="price-note">
-            Billed every month. Automatically renews until cancelled.
-          </div>
-
-          <ul>
-            <li>Advanced Focus controls</li>
-            <li>Saved videos and timestamped notes</li>
-            <li>Progress tracking and learning insights</li>
-            <li>Pomodoro study timer</li>
-            <li>Additional distraction controls</li>
-            <li>EngineerTube Pro account access</li>
-          </ul>
-
-        </article>
-
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <section id="payments">
-
-    <div class="container">
-
-      <div class="payment-box">
-
-        <h2>
-          Subscription and payment information
-        </h2>
-
-        <p>
-          EngineerTube Pro costs
-          <strong>₹20 per month</strong>.
-          The subscription renews monthly until cancellation is
-          requested.
-        </p>
-
-        <p>
-          Users must sign in with Google before purchasing
-          EngineerTube Pro so the subscription can be associated with
-          their EngineerTube account.
-        </p>
-
-        <p>
-          Payments are securely processed through
-          <strong>Razorpay</strong>. EngineerTube does not directly
-          collect or store card numbers, CVV, UPI PINs, banking
-          passwords, or other sensitive payment credentials.
-        </p>
-
-        <div class="notice">
-
-          Cancellation:
-          users may stop automatic renewal. When cancellation is
-          scheduled at the end of the current billing cycle, Pro
-          access remains available until the end of the already-paid
-          billing period, and the subscription will not renew again.
-
-        </div>
-
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <section>
-
-    <div class="container">
-
-      <div class="section-title">
-
-        <h2>
-          Google Sign-In
-        </h2>
-
-        <p>
-          EngineerTube uses Google Sign-In to identify users and
-          associate their EngineerTube Pro subscription with their
-          account.
-        </p>
-
-      </div>
-
-      <div class="card">
-
-        <p>
-          EngineerTube requests only basic Google identity information,
-          including name, email address, account identifier, and
-          profile information when available.
-        </p>
-
-        <p>
-          EngineerTube does not request access to Gmail, Google Drive,
-          Google Calendar, or Google Contacts.
-        </p>
-
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <section id="contact">
-
-    <div class="container">
-
-      <div class="section-title">
-
-        <h2>
-          Contact & policies
-        </h2>
-
-        <p>
-          Questions about EngineerTube, subscriptions, privacy, or
-          account access can be sent to the contact email below.
-        </p>
-
-      </div>
-
-      <div class="card">
-
-        <p>
-          <strong>Product:</strong>
-          EngineerTube
-        </p>
-
-        <p>
-          <strong>Contact email:</strong>
-          <a href="mailto:contactengineertube@gmail.com">
-            contactengineertube@gmail.com
-          </a>
-        </p>
-
-        <p>
-          <strong>Privacy Policy:</strong>
-          <a
-            href="https://vanchit.github.io/engineertube-privacy/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            View EngineerTube Privacy Policy
-          </a>
-        </p>
-
-        <p>
-          EngineerTube is an independent Chrome extension and is not
-          affiliated with or endorsed by YouTube or Google.
-        </p>
-
-      </div>
-
-    </div>
-
-  </section>
-
-</main>
-
-
-<footer>
-
-  <div class="container footer">
-
-    <div>
-      © 2026 EngineerTube. All rights reserved.
-    </div>
-
-    <div class="footer-links">
-
-      <a
-        href="https://vanchit.github.io/engineertube-privacy/"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        Privacy Policy
-      </a>
-
-      <a href="mailto:contactengineertube@gmail.com">
-        Contact
-      </a>
-
-    </div>
-
-  </div>
-
-</footer>
+  </footer>
 
 </body>
 </html>
